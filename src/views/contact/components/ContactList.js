@@ -41,12 +41,18 @@ const ContactList = ({ usersList }) => {
         usersList.map(({ name, document, phones }, index) => {
             return (
               <div key={index}>
-                <p>{name} - {document}</p>              
-                <ul>
-                  { 
-                    phones.map((phone, index) => <li key={`${phone}-${index}`}>{phone}</li>)
-                  }
-                </ul>
+                <p>{name} - {document}</p>
+                {
+                  phones
+                  ? (
+                    <ul>
+                      { 
+                        phones.map((phone, index) => <li key={`${phone}-${index}`}>{phone}</li>)
+                      }
+                    </ul>
+                  )
+                  : null
+                }         
               </div>
             )
         })
